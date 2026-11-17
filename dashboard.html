@@ -1,0 +1,21 @@
+{% extends "base.html" %}{% block title %}Dashboard{% endblock %}{% block heading %}Dashboard{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-copy"><span class="pill">BAKEBOSS • SINCE 1993</span><h2>Good day! Ready for<br>another fresh batch?</h2><p>Keep track of daily sales, bakery products, and customer credit in one place.</p><a class="btn light" href="{{ url_for('sales') }}">＋ Record a sale</a></div>
+  <img src="{{ url_for('static', filename='images/bakeboss-sign.jpg') }}" alt="BakeBoss Bakeshop sign">
+</section>
+<section class="stats">
+  <article class="stat"><span>Today's Sales</span><strong>{{ today_sales|peso }}</strong><small>{{ sales_count }} transaction(s) today</small></article>
+  <article class="stat"><span>Products</span><strong>{{ product_count }}</strong><small>Different items listed</small></article>
+  <article class="stat"><span>Total Stock</span><strong>{{ stock_count }}</strong><small>Units currently available</small></article>
+  <article class="stat"><span>Outstanding Credit</span><strong>{{ credit_total|peso }}</strong><small>Customer balances to collect</small></article>
+</section>
+<section class="two-col">
+  <div class="panel"><div class="panel-head"><div><h3>Low Stock Alert</h3><p>Products at or below their reorder level</p></div><a href="{{ url_for('inventory') }}">View inventory →</a></div>
+    {% if low_stock %}<div class="table-wrap"><table><thead><tr><th>Product</th><th>Stock</th><th>Alert level</th></tr></thead><tbody>{% for p in low_stock %}<tr><td>{{ p.name }}</td><td><span class="stock-low">{{ p.stock }}</span></td><td>{{ p.low_stock_level }}</td></tr>{% endfor %}</tbody></table></div>{% else %}<div class="empty">All products are above their low-stock levels.</div>{% endif %}
+  </div>
+  <div class="panel photo-panel"><img src="{{ url_for('static', filename='images/bakeboss-store.jpg') }}" alt="BakeBoss Bakeshop storefront"><div><h3>Welcome to BakeTrack</h3><p>A simple digital assistant for managing BakeBoss Bakeshop operations.</p></div></div>
+</section>
+<section class="panel"><div class="panel-head"><div><h3>Recent Sales</h3><p>Your latest recorded transactions</p></div><a href="{{ url_for('history') }}">See all →</a></div>
+{% if recent_sales %}<div class="table-wrap"><table><thead><tr><th>Sale #</th><th>Date</th><th>Customer</th><th>Payment</th><th>Total</th></tr></thead><tbody>{% for s in recent_sales %}<tr><td>#{{ s.id }}</td><td>{{ s.sale_date }}</td><td>{{ s.customer_name }}</td><td><span class="tag">{{ s.payment_type }}</span></td><td>{{ s.total|peso }}</td></tr>{% endfor %}</tbody></table></div>{% else %}<div class="empty">No sales recorded yet. Start by recording your first sale.</div>{% endif %}</section>
+{% endblock %}

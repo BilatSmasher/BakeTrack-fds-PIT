@@ -1,0 +1,29 @@
+{% extends "base.html" %}{% block title %}New Sale{% endblock %}{% block heading %}Record a Sale{% endblock %}
+{% block content %}
+<div class="panel narrow"><div class="panel-head"><div><h3>New Transaction</h3><p>Select the items purchased by the customer.</p></div></div>
+<form method="post" id="sale-form">
+<div id="sale-items"><div class="sale-line"><label>Product<select name="product_id" required><option value="">Choose product</option>{% for p in products %}<option value="{{ p.id }}">{{ p.name }} — {{ p.price|peso }} ({{ p.stock }} available)</option>{% endfor %}</select></label><label>Quantity<input name="quantity" type="number" min="1" value="1" required></label></div></div>
+<button type="button" class="btn secondary" onclick="addLine()">＋ Add another product</button>
+<div class="form-grid spaced">
+<label>Customer (optional for cash)<select name="customer_id"><option value="">Walk-in Customer</option>{% for c in customers %}<option value="{{ c.id }}">{{ c.name }} · Balance {{ c.balance|peso }}</option>{% endfor %}</select></label>
+<label>Payment type<select name="payment_type" id="payment_type" onchange="togglePaid()"><option>Cash</option><option>Credit</option></select></label>
+<label>Amount paid (₱)<input name="amount_paid" type="number" min="0" step=".01" value="0" required></label>
+</div>
+<p class="hint">For cash sales, enter the amount received. For credit sales, enter any partial payment; the remaining amount is added to the customer's balance.</p>
+<button class="btn" type="submit">Save Transaction</button>
+</form></div>
+<script>
+function addLine(){
+ const holder=document.getElementById('sale-items');
+ const first=holder.querySelector('.sale-line');
+ const clone=first.cloneNode(true);
+ clone.querySelector('select').value='';
+ clone.querySelector('input').value=1;
+ const remove=document.createElement('button');
+ remove.type='button'; remove.className='remove-line'; remove.textContent='Remove';
+ remove.onclick=()=>clone.remove();
+ clone.appendChild(remove); holder.appendChild(clone);
+}
+function togglePaid(){}
+</script>
+{% endblock %}
