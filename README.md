@@ -24,9 +24,9 @@ We selected these technologies because they are accessible to our group members 
 | Name | Role |
 |---|---|
 | Naldo, Ella | Project Leader |
-| Balabag, Ashly | Database Designer |
+| Balabag, Ashly | Database Designer 1 |
+| Casano, Kazandra| Database Designer 2 |
 | Salcedo, Kelly | Programmer |
-| Balabag, Ashly | UI/XU Designer |
 | Sastrellas, Nicole | Documentation |
 
 ## System Features
