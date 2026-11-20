@@ -49,3 +49,9 @@ We selected these technologies because they are accessible to our group members 
 
 ## Project Purpose
 This project is developed as part of the CS214 Finals Performance Innovative Task. Its primary purpose is to demonstrate database design, application development, and the use of information systems in managing business operations.
+
+## Documentation
+[View Project Documentation](https://docs.google.com/document/d/1v_pvavENVLfkbmE6KV-b_u7hsmG-dN1P/edit?usp=drivesdk&ouid=116231665277509215954&rtpof=true&sd=true)
+
+## Project Files
+[View Project Files](https://drive.google.com/drive/folders/1BLiWt2R2RIiXmoU4lj-urmeOXAST7KFm)
