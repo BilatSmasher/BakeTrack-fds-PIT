@@ -1,29 +1,51 @@
-# fds-PIT
+# BakeTrack: A Sales, Inventory, and Credit Management System for BakeBoss Bakeshop
+
+BakeTrack is a database-driven application designed to help BakeBoss Bakeshop manage its daily business operations. It focuses on organizing sales transactions, monitoring inventory, managing customer credit records, and maintaining transaction history.
 
 ## Project Overview
 CS214 - Finals Performance Innovative Task
 
-This project aims to develop a database-driven application for [Business Name].
+BakeTrack: A Sales, Inventory, and Credit Management System for BakeBoss Bakeshop
+
+BakeTrack is a database-driven application designed to help BakeBoss Bakeshop manage its daily business operations. It focuses on organizing sales transactions, monitoring inventory, managing customer credit records, and maintaining transaction history.
 
 ## Technology Stack
 
-- Programming Language: [Python / Java / PHP / etc.]
+- Programming Language: [Python]
+- Frontend: [ HTML and CSS ]
 - Database: [MySQL / SQLite / PostgreSQL]
-- Development Tool: [VS Code / Thonny / etc.]
+- Development Tool: [Visual Studio Code]
 
 ## Why We Chose This Stack
-We selected these technologies because they are suitable for our project, accessible to our group members, and capable of managing relational data.
+We selected these technologies because they are accessible to our group members and suitable for developing a database-driven application. Python handles the application's logic, while HTML and CSS provide the user interface.
 
 ## Group Members
 
 | Name | Role |
 |---|---|
-| Member 1 | Project Leader |
-| Member 2 | Database Designer |
-| Member 3 | Programmer |
-| Member 4 | Documentation |
+| Naldo, Ella | Project Leader |
+| Balabag, Ashly | Database Designer |
+| Salcedo, Kelly | Programmer |
+| Balabag, Ashly | UI/XU Designer |
+| Sastrellas, Nicole | Documentation |
 
-## Features
-- Database connectivity
-- Record management
-- Data retrieval
+## System Features
+- Sales Management: Records and monitors sales transactions.
+- Inventory Management: Tracks available products and stock quantities.
+- Credit Management: Organized customer credit records and balances.
+- Dashboard: Provides an overview of business operations.
+- Transaction History: Maintains records of previous transactions.
+
+## Project Structure
+- app.py: Main application file.
+- base.html: Base HTML template.
+- dashboard.html: Dashboard interface.
+- sales.html: Sales management interface.
+- inventory.html: Inventory management interface.
+- credit.html: Credit management interface.
+- history.html: Transaction history interface.
+- style.css: Application styling.
+- requirements.txt: Python dependencies.
+
+## Project Purpose
+This project is developed as part of the CS214 Finals Performance Innovative Task. Its primary purpose is to demonstrate database design, application development, and the use of information systems in managing business operations.
