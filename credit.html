@@ -1,11 +1,4 @@
 
-{% extends "base.html" %}
-
-{% block title %}Customer Credit{% endblock %}
-{% block heading %}Customer Credit Management{% endblock %}
-
-{% block content %}
-
 <div class="credit-total">
     <span>Total Outstanding Customer Credit</span>
     <strong>{{ total_credit|peso }}</strong>
@@ -39,7 +32,7 @@
         </form>
     </div>
 
-    <!-- Record Payment -->
+    #RecPayments
     <div class="panel">
         <div class="panel-head">
             <div>
@@ -80,7 +73,7 @@
 
 </div>
 
-<!-- Customer Balances -->
+#Balances 
 <div class="panel">
     <div class="panel-head">
         <div>
@@ -127,7 +120,7 @@
     </div>
 </div>
 
-<!-- Recent Credit Payments -->
+#CreditPayment
 <div class="panel">
     <div class="panel-head">
         <div>
@@ -168,4 +161,3 @@
     </div>
 </div>
 
-{% endblock %}
