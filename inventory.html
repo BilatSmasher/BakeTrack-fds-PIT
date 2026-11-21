@@ -1,16 +1,110 @@
-{% extends "base.html" %}{% block title %}Inventory{% endblock %}{% block heading %}Inventory Management{% endblock %}
+
+{% extends "base.html" %}
+
+{% block title %}Inventory{% endblock %}
+{% block heading %}Inventory Management{% endblock %}
+
 {% block content %}
-<div class="panel"><div class="panel-head"><div><h3>Add a Bakery Product</h3><p>Register products and their starting stock.</p></div></div>
-<form method="post" class="form-grid">
-<label>Product name<input name="name" required placeholder="e.g. Pandesal"></label>
-<label>Category<select name="category"><option>Bread</option><option>Pastry</option><option>Cake</option><option>Other</option></select></label>
-<label>Selling price (₱)<input name="price" type="number" min="0" step="0.01" required></label>
-<label>Current stock<input name="stock" type="number" min="0" required></label>
-<label>Low-stock alert level<input name="low_stock_level" type="number" min="0" value="5" required></label>
-<div class="form-action"><button class="btn" type="submit">＋ Add Product</button></div>
-</form></div>
-<div class="panel"><div class="panel-head"><div><h3>Product List</h3><p>Update selling prices and stock quantities.</p></div><form class="search" method="get"><input name="q" value="{{ search }}" placeholder="Search products"><button class="btn small">Search</button></form></div>
-<div class="table-wrap"><table><thead><tr><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Update inventory</th></tr></thead><tbody>
-{% for p in products %}<tr><td><strong>{{ p.name }}</strong></td><td>{{ p.category }}</td><td>{{ p.price|peso }}</td><td>{% if p.stock <= p.low_stock_level %}<span class="stock-low">{{ p.stock }} · Low</span>{% else %}<span class="stock-good">{{ p.stock }}</span>{% endif %}</td><td><form class="inline-form" method="post" action="{{ url_for('update_product', product_id=p.id) }}"><input aria-label="Price" name="price" type="number" min="0" step=".01" value="{{ p.price }}" required><input aria-label="Stock" name="stock" type="number" min="0" value="{{ p.stock }}" required><input aria-label="Alert level" name="low_stock_level" type="number" min="0" value="{{ p.low_stock_level }}" required><button class="btn small">Save</button></form></td></tr>{% else %}<tr><td colspan="5" class="empty">No products found.</td></tr>{% endfor %}
-</tbody></table></div><p class="hint">In the update fields: price, stock quantity, and low-stock alert level.</p></div>
+<div class="panel">
+    <div class="panel-head">
+        <div>
+            <h3>Add a Bakery Product</h3>
+            <p>Add a new product and enter its starting stock.</p>
+        </div>
+    </div>
+
+    <form method="post" class="form-grid">
+        <label>
+            Product name
+            <input name="name" type="text" required placeholder="e.g. Pandesal">
+        </label>
+
+        <label>
+            Category
+            <select name="category">
+                <option>Bread</option>
+                <option>Pastry</option>
+                <option>Cake</option>
+                <option>Other</option>
+            </select>
+        </label>
+
+        <label>
+            Selling price (₱)
+            <input name="price" type="number" min="0" step="0.01" required>
+        </label>
+
+        <label>
+            Current stock
+            <input name="stock" type="number" min="0" required>
+        </label>
+
+        <label>
+            Low-stock alert level
+            <input name="low_stock_level" type="number" min="0" value="5" required>
+        </label>
+
+        <div class="form-action">
+            <button class="btn" type="submit">＋ Add Product</button>
+        </div>
+    </form>
+</div>
+
+<div class="panel">
+    <div class="panel-head">
+        <div>
+            <h3>Product List</h3>
+            <p>Manage product prices and available stock.</p>
+        </div>
+
+        <form class="search" method="get">
+            <input name="q" value="{{ search }}" placeholder="Search products">
+            <button class="btn small" type="submit">Search</button>
+        </form>
+    </div>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Update inventory</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in products %}
+                <tr>
+                    <td><strong>{{ p.name }}</strong></td>
+                    <td>{{ p.category }}</td>
+                    <td>{{ p.price|peso }}</td>
+                    <td>
+                        {% if p.stock <= p.low_stock_level %}
+                        <span class="stock-low">{{ p.stock }} · Low</span>
+                        {% else %}
+                        <span class="stock-good">{{ p.stock }}</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <form class="inline-form" method="post" action="{{ url_for('update_product', product_id=p.id) }}">
+                            <input aria-label="Price" name="price" type="number" min="0" step="0.01" value="{{ p.price }}" required>
+                            <input aria-label="Stock" name="stock" type="number" min="0" value="{{ p.stock }}" required>
+                            <input aria-label="Alert level" name="low_stock_level" type="number" min="0" value="{{ p.low_stock_level }}" required>
+                            <button class="btn small" type="submit">Save</button>
+                        </form>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5" class="empty">No products found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <p class="hint">Use the update fields to change a product's price, stock quantity, or low-stock alert level.</p>
+</div>
 {% endblock %}
