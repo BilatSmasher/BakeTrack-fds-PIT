@@ -5,6 +5,9 @@ BakeTrack is a database-driven application designed to help BakeBoss Bakeshop ma
 ## Project Documentation 
 [View Project Files](https://drive.google.com/drive/folders/1BLiWt2R2RIiXmoU4lj-urmeOXAST7KFm)
 
+## Documentation Tracker
+[View our Documentation Tracker](https://github.com/users/ashlybalabag5-cyber/projects/1)
+
 ## How to Run Locally
 1. Install Python 3.9+.
 2. Install Flask: `pip install flask`
