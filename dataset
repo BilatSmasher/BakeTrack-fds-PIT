@@ -1,0 +1,83 @@
+SELECT COUNT(*)
+FROM sample_product_dataset;
+
+-- TABLE DISPLAY
+SELECT *
+FROM sample_product_dataset
+ORDER BY product_id;
+
+-- SCHEMA SQL
+CREATE TABLE sample_product_dataset (
+    product_id VARCHAR(10) PRIMARY KEY,
+    product_name VARCHAR(100) NOT NULL,
+    category VARCHAR(50) NOT NULL,
+    unit_price NUMERIC(10, 2) NOT NULL,
+    quantity_sold INTEGER NOT NULL,
+    total_sales NUMERIC(10, 2) NOT NULL
+);
+
+-- INSERT SQL: 50 Bakery Products + 10 Sari-Sari Store Products
+INSERT INTO sample_product_dataset
+(product_id, product_name, category, unit_price, quantity_sold, total_sales)
+VALUES
+('B001', 'Pandesal', 'Bread', 5.00, 50, 250.00),
+('B002', 'Spanish Bread', 'Bread', 12.00, 30, 360.00),
+('B003', 'Ensaymada', 'Pastry', 18.00, 22, 396.00),
+('B004', 'Cheese Bread', 'Bread', 15.00, 25, 375.00),
+('B005', 'Ube Bread', 'Bread', 18.00, 20, 360.00),
+('B006', 'Monay', 'Bread', 8.00, 35, 280.00),
+('B007', 'Kababayan', 'Bread', 10.00, 28, 280.00),
+('B008', 'Pan de Coco', 'Bread', 12.00, 24, 288.00),
+('B009', 'Kalihim', 'Pastry', 15.00, 18, 270.00),
+('B010', 'Mamon', 'Cake', 15.00, 20, 300.00),
+('B011', 'Cupcake', 'Cake', 25.00, 16, 400.00),
+('B012', 'Chocolate Muffin', 'Pastry', 30.00, 14, 420.00),
+('B013', 'Banana Muffin', 'Pastry', 25.00, 15, 375.00),
+('B014', 'Brownies', 'Dessert', 35.00, 12, 420.00),
+('B015', 'Chocolate Chip Cookie', 'Cookie', 15.00, 25, 375.00),
+('B016', 'Butter Cookie', 'Cookie', 12.00, 30, 360.00),
+('B017', 'Oatmeal Cookie', 'Cookie', 18.00, 18, 324.00),
+('B018', 'Cheese Roll', 'Pastry', 20.00, 20, 400.00),
+('B019', 'Cinnamon Roll', 'Pastry', 35.00, 10, 350.00),
+('B020', 'Apple Pie', 'Pie', 45.00, 8, 360.00),
+('B021', 'Egg Pie', 'Pie', 40.00, 12, 480.00),
+('B022', 'Buko Pie', 'Pie', 50.00, 10, 500.00),
+('B023', 'Lemon Cake Slice', 'Cake', 40.00, 10, 400.00),
+('B024', 'Chocolate Cake Slice', 'Cake', 45.00, 12, 540.00),
+('B025', 'Carrot Cake Slice', 'Cake', 45.00, 8, 360.00),
+('B026', 'Black Forest Slice', 'Cake', 55.00, 7, 385.00),
+('B027', 'Red Velvet Slice', 'Cake', 50.00, 8, 400.00),
+('B028', 'Tuna Bread', 'Bread', 25.00, 12, 300.00),
+('B029', 'Ham and Cheese Bread', 'Bread', 28.00, 15, 420.00),
+('B030', 'Hotdog Bread', 'Bread', 25.00, 18, 450.00),
+('B031', 'Garlic Bread', 'Bread', 20.00, 20, 400.00),
+('B032', 'Baguette', 'Bread', 45.00, 7, 315.00),
+('B033', 'Whole Wheat Bread', 'Bread', 55.00, 6, 330.00),
+('B034', 'Milk Bread', 'Bread', 35.00, 12, 420.00),
+('B035', 'Crinkles', 'Cookie', 10.00, 30, 300.00),
+('B036', 'Polvoron', 'Sweets', 8.00, 35, 280.00),
+('B037', 'Puto', 'Rice Cake', 10.00, 25, 250.00),
+('B038', 'Kutsinta', 'Rice Cake', 10.00, 25, 250.00),
+('B039', 'Cheese Donut', 'Donut', 20.00, 20, 400.00),
+('B040', 'Chocolate Donut', 'Donut', 22.00, 18, 396.00),
+('B041', 'Glazed Donut', 'Donut', 18.00, 22, 396.00),
+('B042', 'Cream Donut', 'Donut', 25.00, 15, 375.00),
+('B043', 'Croissant', 'Pastry', 40.00, 10, 400.00),
+('B044', 'Pain au Chocolat', 'Pastry', 45.00, 8, 360.00),
+('B045', 'Fruit Tart', 'Tart', 50.00, 6, 300.00),
+('B046', 'Strawberry Shortcake Slice', 'Cake', 55.00, 8, 440.00),
+('B047', 'Caramel Bar', 'Dessert', 25.00, 14, 350.00),
+('B048', 'Macaroons', 'Cookie', 12.00, 24, 288.00),
+('B049', 'Brioche', 'Bread', 35.00, 10, 350.00),
+('B050', 'Pineapple Bread', 'Bread', 18.00, 16, 288.00),
+('S001', 'Lucky Me Pancit Canton', 'Instant Noodles', 18.00, 35, 630.00),
+('S002', 'Kopiko 3-in-1', 'Coffee', 10.00, 40, 400.00),
+('S003', 'Coca-Cola 290 ml', 'Soft Drinks', 20.00, 28, 560.00),
+('S004', 'Piattos', 'Snacks', 20.00, 25, 500.00),
+('S005', 'SkyFlakes', 'Biscuits', 10.00, 32, 320.00),
+('S006', 'Sardines', 'Canned Goods', 25.00, 20, 500.00),
+('S007', 'Bear Brand Sachet', 'Milk', 12.00, 24, 288.00),
+('S008', 'Surf Sachet', 'Laundry Detergent', 8.00, 30, 240.00),
+('S009', 'Palmolive Sachet', 'Personal Care', 7.00, 26, 182.00),
+('S010', 'Nescafe Sachet', 'Coffee', 8.00, 34, 272.00);
+
